@@ -1,0 +1,29 @@
+<%= form_for(@signout_log) do |f| %>
+  <% if @signout_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@signout_log.errors.count, "error") %> prohibited this signout_log from being saved:</h2>
+
+      <ul>
+      <% @signout_log.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :device_id %><br />
+    <%= f.text_field :device_id %>
+  </div>
+  <div class="field">
+    <%= f.label :device_type %><br />
+    <%= f.text_field :device_type %>
+  </div>
+  <div class="field">
+    <%= f.label :current_person_id %><br />
+    <%= f.number_field :current_person_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

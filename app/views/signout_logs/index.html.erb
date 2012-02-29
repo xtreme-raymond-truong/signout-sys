@@ -1,0 +1,27 @@
+<h1>Listing signout_logs</h1>
+
+<table>
+  <tr>
+    <th>Device</th>
+    <th>Current Holder</th>
+    <th>Former Holder</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @signout_logs.each do |signout_log| %>
+  <tr>
+    <td><%= eval("#{signout_log.device_type}").find(signout_log.device_id).name %></td>
+    <td><%= Person.find(signout_log.current_person_id).name %></td>
+    <td><%= signout_log.former_person_1_id %></td>
+    <td><%= link_to 'Show', signout_log %></td>
+    <td><%= link_to 'Edit', edit_signout_log_path(signout_log) %></td>
+    <td><%= link_to 'Destroy', signout_log, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Signout log', new_signout_log_path %>

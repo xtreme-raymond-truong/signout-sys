@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Device:</b>
+  <%= eval("#{@signout_log.device_type}").find(@signout_log.device_id).name %>
+</p>
+
+<p>
+  <b>Current person:</b>
+  <%= @signout_log.current_person_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_signout_log_path(@signout_log) %> |
+<%= link_to 'Back', signout_logs_path %>
